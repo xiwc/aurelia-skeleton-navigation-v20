@@ -1,9 +1,17 @@
-export class ChildRouter {
-    heading = 'Child Router';
+import {
+    activationStrategy
+}
+from 'aurelia-router';
+
+export class Parent {
+
+    // determineActivationStrategy() {
+    //     return activationStrategy.replace;
+    // }
 
     configureRouter(config, router) {
         config.map([{
-            route: ['', 'welcome'],
+            route: ['welcome'],
             name: 'welcome',
             moduleId: 'welcome',
             nav: true,
@@ -15,11 +23,8 @@ export class ChildRouter {
             nav: true,
             title: 'Github Users'
         }, {
-            route: 'child-router',
-            name: 'child-router',
-            moduleId: 'child-router',
-            nav: true,
-            title: 'Child Router'
+            route: '',
+            redirect: 'welcome'
         }]);
 
         this.router = router;
